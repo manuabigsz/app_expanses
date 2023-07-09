@@ -1,3 +1,6 @@
+import 'package:expansez/components/transaction_form.dart';
+import 'package:expansez/components/transaction_list.dart';
+import 'package:expansez/components/transaction_user.dart';
 import 'package:expansez/models/transaction.dart';
 import 'package:flutter/material.dart';
 
@@ -13,16 +16,6 @@ class ExpansesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  final _transactions = [
-    Transaction(
-        id: 't1',
-        title: 'novo tenis corrida',
-        value: 310.76,
-        date: DateTime.now()),
-    Transaction(
-        id: 't2', title: 'novo montor', value: 1299.00, date: DateTime.now()),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +23,7 @@ class MyHomePage extends StatelessWidget {
         title: Text('Despesas pessoais'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
             width: double.infinity,
@@ -40,10 +34,7 @@ class MyHomePage extends StatelessWidget {
               elevation: 5,
             ),
           ),
-          Card(
-            child: Text('lista de transações'),
-            elevation: 5,
-          ),
+          TransactionUser(),
         ],
       ),
     );
